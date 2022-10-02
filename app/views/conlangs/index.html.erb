@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Conlangs</h1>
+
+<div id="conlangs">
+  <% @conlangs.each do |conlang| %>
+    <%= render conlang %>
+    <br />
+  <% end %>
+</div>
+
+<%= link_to "New conlang", new_conlang_path %>

@@ -1,0 +1,2 @@
+module ConlangsHelper
+end

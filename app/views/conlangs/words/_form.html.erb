@@ -1,0 +1,19 @@
+<% if word.nil? %>
+  <tr id="word_new">
+    <%= form_for conlang.words.new do |f| %>
+      <%= f.hidden_field :conlang_id, value: conlang.id %>
+      <td><%= f.text_field :text %></td>
+      <td><%= f.text_field :english %></td>
+      <td><%= f.submit %></td>
+    <% end %>
+  </tr>
+<% else %>
+  <tr id="word_new">
+    <%= form_for word do |f| %>
+      <%= f.hidden_field :conlang_id, value: conlang.id %>
+      <td><%= f.text_field :text %></td>
+      <td><%= f.text_field :english %></td>
+      <td><%= f.submit %></td>
+    <% end %>
+  </tr>
+<% end %>

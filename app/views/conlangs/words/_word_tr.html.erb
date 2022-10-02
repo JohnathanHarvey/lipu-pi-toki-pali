@@ -1,0 +1,14 @@
+<tr id="<%= dom_id word %>">
+  <td id="text_word_<%= word.id %>"><%= word.text %></td>
+  <td id="english_word_<%= word.id %>"><%= word.english %></td>
+  <td><%= word.updated_at.strftime("%F") %></td>
+  <td><%= link_to "Edit", edit_word_path(word) %></td>
+  <td><%= button_to "Delete", word, method: :delete %></td>
+</tr>
+
+<%# <div class="table-row" id="<%= dom_id word %1>"> %>
+<%#   <div id="text_word_<%= word.id %1>" class="table-cell"><%= word.text %1></div> %>
+<%#   <div id="english_word_<%= word.id %1>" class="table-cell"><%= word.english %1></div> %>
+<%#   <div class="table-cell"><%= word.updated_at.strftime("%F") %1></div> %>
+<%#   <div class="table-cell"><%= button_to "Delete", word, method: :delete %1></div> %>
+<%# </div> %>

@@ -1,0 +1,13 @@
+<%= render @conlang %>
+<br />
+<%= form_with(model: @conlang) do |f| %>
+  <div>
+    <%= f.text_field :name %>
+    <br />
+    <%= f.submit %>
+  </div>
+<% end %>
+<br />
+<%= words_table @conlang %>
+<br />
+<%= phonology @conlang %>
