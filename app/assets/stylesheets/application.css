@@ -13,8 +13,54 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+   font-family: 'Open-Dyslexia';
+   src: url('/assets/OpenDyslexic-Regular.otf')
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.thead {
+  display: table-header-group;
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+  background-color: rbg(200, 200, 200);
+}
+
+.tr:nth-child(even) {
+  background-color: rgb(255, 255, 255);
+}
+
+.td {
+  display: table-cell;
+  padding: 5px;
+}
+
+.th {
+  display: table-cell;
+  padding: 10px;
+  text-align: justify;
+  border-bottom: 1px solid black;
+}
+
 body {
-  background-color: #00000063;
+  background-color: rgb(230, 230, 230);
+}
+
+* {
+  font-family: 'Open-Dyslexia';
 }
 
 .conlang_list_item {

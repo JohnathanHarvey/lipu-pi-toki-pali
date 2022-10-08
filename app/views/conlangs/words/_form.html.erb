@@ -1,19 +1,16 @@
 <% if word.nil? %>
-  <tr id="word_new">
-    <%= form_for conlang.words.new do |f| %>
-      <%= f.hidden_field :conlang_id, value: conlang.id %>
-      <td><%= f.text_field :text %></td>
-      <td><%= f.text_field :english %></td>
-      <td><%= f.submit %></td>
-    <% end %>
-  </tr>
+  <%= form_for conlang.words.new, html: { class: "tr", id: "word_new" } do |f| %>
+    <%= f.hidden_field :conlang_id, value: conlang.id %>
+    <div class="td"><%= f.text_field :text %></div>
+    <div class="td"><%= f.text_field :english %></div>
+    <div class="td">-</div>
+    <div class="td"><%= f.submit %></div>
+  <% end %>
 <% else %>
-  <tr id="word_new">
-    <%= form_for word do |f| %>
-      <%= f.hidden_field :conlang_id, value: conlang.id %>
-      <td><%= f.text_field :text %></td>
-      <td><%= f.text_field :english %></td>
-      <td><%= f.submit %></td>
-    <% end %>
-  </tr>
+  <%= form_for word, html: { class: "tr", id: "#{dom_id word}" } do |f| %>
+    <div class="td"><%= f.text_field :text %></div>
+    <div class="td"><%= f.text_field :english %></div>
+    <div class="td"><%= word.updated_at.strftime("%F") %></div>
+    <div class="td"><%= f.submit %></div>
+  <% end %>
 <% end %>

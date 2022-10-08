@@ -1,31 +1,34 @@
 <%= turbo_stream_from :words %>
-<div>Words:</div>
-<table>
-  <thead>
-    <tr>
-      <th>Word</th>
-      <th>English</th>
-      <th>Updated</th>
-    </tr>
-  </thead>
-  <tbody id="words_table">
+<%# <table> %>
+<%#   <thead> %>
+<%#     <tr> %>
+<%#       <th>Word</th> %>
+<%#       <th>English</th> %>
+<%#       <th>Updated</th> %>
+<%#     </tr> %>
+<%#   </thead> %>
+<%#   <tbody id="words_table"> %>
+<%#     <% conlang.words.each do |word| %1> %>
+<%#       <%= word_tr word %1> %>
+<%#     <% end %1> %>
+<%#     <%= new_word_form conlang %1> %>
+<%#   </tbody> %>
+<%# </table> %>
+
+<div class="table">
+  <div class="thead">
+    <div class="tr">
+      <div class="th">Word</div>
+      <div class="th">English</div>
+      <div class="th">Updated</div>
+      <div class="th">Edit</div>
+      <div class="th">Delete</div>
+    </div>
+  </div>
+  <div id="words_table" class="tbody">
     <% conlang.words.each do |word| %>
       <%= word_tr word %>
     <% end %>
     <%= new_word_form conlang %>
-  </tbody>
-</table>
-<%# <div class="table"> %>
-<%#   <div class="table-header-group"> %>
-<%#     <div class="table-row"> %>
-<%#       <div class="table-cell">Word</div> %>
-<%#       <div class="table-cell">English</div> %>
-<%#       <div class="table-cell">Updated</div> %>
-<%#     </div> %>
-<%#   </div> %>
-<%#   <div id="words_table" class="table-row-group"> %>
-<%#     <% conlang.words.each do |word| %1> %>
-<%#       <%= word_tr word %1> %>
-<%#     <% end %1> %>
-<%#   </div> %>
-<%# </div> %>
+  </div>
+</div>

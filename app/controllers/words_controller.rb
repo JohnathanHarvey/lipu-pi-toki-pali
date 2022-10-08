@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   before_action :set_word, only: %i[ show edit update destroy ]
-  before_action :set_conlang, only: %i[ create, edit ]
+  # before_action :set_conlang, only: %i[ create, edit ]
 
   def index
     @words = Word.all
@@ -14,17 +14,22 @@ class WordsController < ApplicationController
   end
 
   def edit
-    @word.replace_tr
+    @word.edit_form
+
+    render html: ""
   end
 
   def create
-    @word = @conlang.words.new(word_params)
+    @word = Conlang
+              .find_by(params[:word][:conlang_id])
+              .words
+              .new(word_params)
     @word.save
   end
 
   def update
     if @word.update(word_params)
-      @word.remove_form
+      # @word.remove_form
     end
   end
 
@@ -38,9 +43,9 @@ class WordsController < ApplicationController
       @word = Word.find(params[:id])
     end
 
-    def set_conlang
-      @conlang = Conlang.find(params[:word][:conlang_id])
-    end
+    # def set_conlang
+    #   @conlang = Conlang.find(params[:word][:conlang_id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def word_params

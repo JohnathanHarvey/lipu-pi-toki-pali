@@ -16,6 +16,10 @@ class Word < ApplicationRecord
       locals: { word: self }
     broadcast_remove_to :words,
       target: :word_new
+    broadcast_append_to :words,
+      target: :words_table,
+      partial: "conlangs/words/form",
+      locals: { conlang: self.conlang, word: nil }
   }
 
   after_destroy_commit -> {
@@ -23,17 +27,16 @@ class Word < ApplicationRecord
       target: "word_#{self.id}"
   }
 
-  def replace_form
-    broadcast_replace_to :words,
-      target: "word_#{self.id}",
-      partial: "conlangs/words/form"
+  def new_form
+    broadcast_append_to :words,
+      partial: "conlangs/words/form",
+      locals: { conlang: self.conlang, word: self }
   end
 
-  def replace_tr
+  def edit_form
     broadcast_replace_to :words,
       target: "word_#{self.id}",
       partial: "conlangs/words/form",
       locals: { conlang: self.conlang, word: self }
-
   end
 end
